@@ -141,7 +141,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/updateText"
-                android:text="Update Info"
+                android:text="Update Info &amp; Settings"
                 android:textStyle="bold"
                 android:textColor="@color/update"
                 android:textSize="16sp"

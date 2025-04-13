@@ -1,6 +1,7 @@
 package com.sht_software.raktodaan_blooddonation.Fragment;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.sht_software.raktodaan_blooddonation.AboutUs;
 import com.sht_software.raktodaan_blooddonation.R;
@@ -36,7 +38,7 @@ public class UpdateInfo extends Fragment {
         binding.privacyPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WebView.url = "https://sites.google.com/view/sht-kabinnama";
+                WebView.url = "https://sites.google.com/view/raktadaan-blood-donation";
                 startActivity(new Intent(getActivity(), WebView.class));
             }
         });
@@ -56,18 +58,36 @@ public class UpdateInfo extends Fragment {
         binding.rateUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                rateMe(getActivity());
+                Toast.makeText(getActivity(), "Rate Us", Toast.LENGTH_SHORT).show();
             }
         });
 
         binding.shareApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                shareApp(getActivity());
             }
         });
 
 
         return binding.getRoot();
+    }
+
+    private void shareApp (Context context) {
+        final String appPackageName = context.getPackageName();
+        Intent sendIntend = new Intent();
+        sendIntend.setAction(Intent.ACTION_SEND);
+        sendIntend.putExtra(Intent.EXTRA_TEXT, "Install RaktoDaan Blood Donation App - Install now : https://play.google.com/store/apps/details?id="+appPackageName);
+        sendIntend.setType("text/plain");
+        context.startActivity(sendIntend);
+    }
+
+    public void rateMe (Context context) {
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+ context.getPackageName())));
+        } catch (ActivityNotFoundException e) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+context.getPackageName())));
+        }
     }
 }
