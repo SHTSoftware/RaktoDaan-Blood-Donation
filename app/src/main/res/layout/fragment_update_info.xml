@@ -65,6 +65,45 @@
             android:textSize="16sp"
             />
 
+        <com.google.android.material.button.MaterialButton
+            android:padding="20dp"
+            android:id="@+id/shareApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Share App"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary_red"
+            app:cornerRadius="8dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:padding="20dp"
+            android:id="@+id/rateUs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rate Us"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary_red"
+            app:cornerRadius="8dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:padding="20dp"
+            android:id="@+id/ourMoreApps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Our More Apps"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary_red"
+            app:cornerRadius="8dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            />
+
 
 
     </LinearLayout>
