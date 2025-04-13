@@ -23,7 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Donation Date"
+            android:text="Donate Date Update"
             app:backgroundTint="@color/primary_red"
             app:cornerRadius="0dp"
             android:textAllCaps="false"/>
