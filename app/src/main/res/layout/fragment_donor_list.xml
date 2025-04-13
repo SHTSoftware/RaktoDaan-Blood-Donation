@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.DonorList"
+    android:verticalSpacing="10dp"
+    android:horizontalSpacing="10dp"
+    android:gravity="center"
+    android:padding="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Division"
+                android:textStyle="bold"
+                android:paddingBottom="4dp"
+                android:textSize="16sp"/>
+
+
+            <Spinner
+                android:padding="5dp"
+                android:id="@+id/spinnerDivision"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/spinner_background"
+                android:spinnerMode="dropdown"
+                android:dropDownVerticalOffset="10dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select District"
+                android:textStyle="bold"
+                android:paddingBottom="4dp"
+                android:textSize="16sp"/>
+
+            <Spinner
+                android:padding="5dp"
+                android:id="@+id/spinnerDistrict"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/spinner_background"
+                android:spinnerMode="dropdown"
+                android:dropDownVerticalOffset="10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Upazila"
+                android:textStyle="bold"
+                android:paddingBottom="4dp"
+                android:textSize="16sp"/>
+
+            <Spinner
+                android:padding="5dp"
+                android:id="@+id/spinnerUpazila"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/spinner_background"
+                android:spinnerMode="dropdown"
+                android:dropDownVerticalOffset="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Blood Group"
+                android:textStyle="bold"
+                android:paddingBottom="4dp"
+                android:textSize="16sp"/>
+
+            <Spinner
+                android:padding="5dp"
+                android:id="@+id/spinnerBloodGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/spinner_background"
+                android:spinnerMode="dropdown"
+                android:dropDownVerticalOffset="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Search Donor"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/primary_red"
+                app:cornerRadius="8dp"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:padding="12dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

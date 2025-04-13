@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@color/bg_card"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Donor Name -->
+        <TextView
+            android:id="@+id/tvDonorName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="নাম: জন ডো"/>
+
+        <!-- Phone Number -->
+        <TextView
+            android:id="@+id/tvDonorPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            tools:text="মোবাইল: ০১৭১২-৩৪৫৬৭৮"/>
+
+        <!-- Blood Group and Last Donation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Blood Group -->
+            <TextView
+                android:id="@+id/tvBloodGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/blood_group_bg"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/text_white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="রক্তের গ্রুপ: A+"/>
+
+            <!-- Last Donation Date -->
+            <TextView
+                android:id="@+id/tvLastDonate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/last_donate_date"
+                android:textSize="13sp"
+                tools:text="সর্বশেষ রক্তদান: ১২ জুন ২০২৩"/>
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/divider"/>
+
+        <!-- Location Information -->
+        <TextView
+            android:id="@+id/tvDivision"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/location_text"
+            android:textSize="14sp"
+            tools:text="বিভাগ: ঢাকা"/>
+
+        <TextView
+            android:id="@+id/tvDistrict"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/location_text"
+            android:textSize="14sp"
+            tools:text="জেলা: ঢাকা"/>
+
+        <TextView
+            android:id="@+id/tvUpazila"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/location_text"
+            android:textSize="14sp"
+            tools:text="উপজেলা: সাভার" />
+
+        <TextView
+            android:id="@+id/tvArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/location_text"
+            android:textSize="14sp"
+            tools:text="এলাকা/গ্রাম: আশুলিয়া থানা"/>
+
+        <!-- Registration Date -->
+        <TextView
+            android:id="@+id/tvRegDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/location_text"
+            android:textSize="14sp"
+            tools:text="নিবন্ধনের তারিখ: ১৫ মে ২০২৩"/>
+
+        <!-- Call Button -->
+        <Button
+            android:id="@+id/btnCallDonor"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="কল করুন"
+            android:textColor="@color/primary"
+            app:strokeColor="@color/primary"
+            app:strokeWidth="1dp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

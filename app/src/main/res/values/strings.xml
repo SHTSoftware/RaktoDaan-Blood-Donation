@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">RaktoDaan - Blood Donation</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="calendar_content_desc">Open calendar</string>
+</resources>

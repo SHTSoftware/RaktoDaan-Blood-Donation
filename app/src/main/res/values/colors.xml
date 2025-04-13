@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary colors -->
+    <color name="primary_red">#FF0D47A1</color>
+    <color name="primary_red_dark">#C51162</color>
+    <color name="primary_red_light">#FF80D8FF</color>
+
+    <!-- Background colors -->
+    <color name="light_gray_background">#F5F5F5</color>
+
+    <!-- Text colors -->
+    <color name="dark_gray">#212121</color>
+    <color name="medium_gray">#757575</color>
+    <color name="light_gray">#BDBDBD</color>
+
+    <!-- Status colors -->
+    <color name="available_green">#4CAF50</color>
+    <color name="unavailable_red">#F44336</color>
+    <color name="warning_orange">#FF9800</color>
+
+    <!-- Transparent colors -->
+    <color name="transparent">#00000000</color>
+    <color name="semi_transparent_white">#80FFFFFF</color>
+
+
+    <color name="home">#00BCD4</color>
+    <color name="search">#009688</color>
+    <color name="donor">#710000</color>
+    <color name="update">#FF5722</color>
+
+
+
+    <color name="home_20">#3300BCD4</color>
+    <color name="search_20">#33009688</color>
+    <color name="donor_20">#33710000</color>
+    <color name="update_20">#33FF5722</color>
+
+    <!-- Primary Colors -->
+    <color name="primary">#E53935</color>  <!-- Red -->
+    <color name="primary_dark">#C62828</color>
+    <color name="primary_light">#FFCDD2</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>  <!-- Dark gray for important text -->
+    <color name="text_secondary">#757575</color>  <!-- Medium gray -->
+    <color name="text_tertiary">#BDBDBD</color>  <!-- Light gray -->
+    <color name="text_white">#FFFFFF</color>
+
+    <!-- Special Colors for Blood App -->
+    <color name="blood_red">#F44336</color>
+    <color name="blood_dark_red">#D32F2F</color>
+    <color name="blood_group_bg">#D32F2F</color>
+    <color name="last_donate_date">#FF9800</color>  <!-- Orange -->
+    <color name="location_text">#388E3C</color>  <!-- Green -->
+
+    <!-- Background Colors -->
+    <color name="bg_light">#FAFAFA</color>
+    <color name="bg_card">#FFFFFF</color>
+    <color name="divider">#E0E0E0</color>
+
+</resources>
