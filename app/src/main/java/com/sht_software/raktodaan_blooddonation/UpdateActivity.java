@@ -3,6 +3,7 @@ package com.sht_software.raktodaan_blooddonation;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,17 +17,28 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.android.volley.Request;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputEditText;
 import com.sht_software.raktodaan_blooddonation.databinding.ActivityUpdateBinding;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class UpdateActivity extends AppCompatActivity {
 
     public static ActivityUpdateBinding binding;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -428,14 +440,14 @@ public class UpdateActivity extends AppCompatActivity {
         binding.buttonDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(UpdateActivity.this, "Update date", Toast.LENGTH_SHORT).show();
+                validateAndUpdate();
             }
         });
 
         binding.buttonAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(UpdateActivity.this, "Update Address", Toast.LENGTH_SHORT).show();
+                updateLocation();
             }
         });
 
@@ -501,27 +513,176 @@ public class UpdateActivity extends AppCompatActivity {
 
     private void showDatePicker() {
         MaterialDatePicker<Long> datePicker = MaterialDatePicker.Builder.datePicker()
-                .setTitleText("Select Date")
+                .setTitleText("Select Donation Date")
                 .build();
 
         datePicker.addOnPositiveButtonClickListener(selection -> {
-            // Convert the selected timestamp to a readable date
-            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
-            String formattedDate = sdf.format(new Date(selection));
-
-            // Set the date in the EditText
-            ((TextInputEditText) UpdateActivity.this.findViewById(R.id.lastDonateEditText)).setText(formattedDate);
+            String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                    .format(new Date(selection));
+            binding.lastDonateEditText.setText(date);
         });
 
-        datePicker.show(UpdateActivity.this.getSupportFragmentManager(), "DATE_PICKER");
+        datePicker.show(getSupportFragmentManager(), "DATE_PICKER");
     }
     private void clearForm() {
-        binding.phoneNumberEditText.setText("");
+        binding.edPhone1.setText("");
         binding.lastDonateEditText.setText("");
-        binding.areaVillageEditText.setText("");
+        binding.areaVillageEditText2.setText("");
         binding.spinnerDivision.setSelection(0);
         binding.spinnerDistrict.setSelection(0);
         binding.spinnerUpazila.setSelection(0);
     }
 
+    private void validateAndUpdate() {
+        String phone = binding.edPhone1.getText().toString().trim();
+        String date = binding.lastDonateEditText.getText().toString().trim();
+
+        if (phone.isEmpty()) {
+            binding.edPhone1.setError("Enter phone number");
+            return;
+        }
+
+        if (date.isEmpty()) {
+            binding.lastDonateEditText.setError("Select donation date");
+            return;
+        }
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Updating...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        // Create JSON request body
+        JSONObject jsonBody = new JSONObject();
+        try {
+            jsonBody.put("phone", phone);
+            jsonBody.put("last_donate", date);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST,
+                "https://shtacademy.com/Software/Blood/update_last_donate.php",
+                jsonBody,
+                response -> {
+                    progressDialog.dismiss();
+                    try {
+                        String status = response.getString("status");
+                        String message = response.getString("message");
+
+                        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
+                        if (status.equals("success")) {
+                            // Clear fields on success
+                            binding.edPhone1.setText("");
+                            binding.lastDonateEditText.setText("");
+                        }
+                    } catch (JSONException e) {
+                        Toast.makeText(this, "Error parsing response", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
+                },
+                error -> {
+                    progressDialog.dismiss();
+                    if (error.networkResponse != null && error.networkResponse.data != null) {
+                        try {
+                            String errorData = new String(error.networkResponse.data, StandardCharsets.UTF_8);
+                            JSONObject errorJson = new JSONObject(errorData);
+                            String errorMsg = errorJson.getString("message");
+                            Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
+                        } catch (Exception e) {
+                            Toast.makeText(this, "Network error occurred", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(this, "Network error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json");
+                return headers;
+            }
+        };
+
+        // Add request to queue
+        Volley.newRequestQueue(this).add(request);
+    }
+    private void updateLocation() {
+        String phone = binding.phoneNumberEditText2.getText().toString().trim();
+        String areaVillage = binding.areaVillageEditText2.getText().toString().trim();
+        String division = binding.spinnerDivision.getSelectedItem().toString();
+        String district = binding.spinnerDistrict.getSelectedItem().toString();
+        String upazila = binding.spinnerUpazila.getSelectedItem().toString();
+
+        if (phone.isEmpty()) {
+            binding.phoneNumberEditText2.setError("Enter registered phone number");
+            return;
+        }
+        if (division.equals("প্রথমে বিভাগ সিলেক্ট করুন")) {
+            Toast.makeText(getApplicationContext(), "Please select division", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (district.equals("জেলা সিলেক্ট করুন")) {
+            Toast.makeText(getApplicationContext(), "Please select district", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (upazila.equals("উপজেলা সিলেক্ট করুন")) {
+            Toast.makeText(getApplicationContext(), "Please select upazila", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (areaVillage.isEmpty()) {
+            binding.areaVillageEditText2.setError("Enter Village Name");
+            return;
+        }
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Updating location...");
+        progressDialog.show();
+
+        // Create JSON request body
+        JSONObject jsonBody = new JSONObject();
+        try {
+            jsonBody.put("phone", phone);
+            jsonBody.put("area_village", areaVillage);
+            jsonBody.put("division", division);
+            jsonBody.put("district", district);
+            jsonBody.put("upazila", upazila);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST,
+                "https://shtacademy.com/Software/Blood/update_donor_location.php",
+                jsonBody,
+                response -> {
+                    progressDialog.dismiss();
+                    try {
+                        String status = response.getString("status");
+                        String message = response.getString("message");
+
+                        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
+                        if (status.equals("success")) {
+                            finish(); // Close activity on success
+                        }
+                    } catch (JSONException e) {
+                        Toast.makeText(this, "Error processing response", Toast.LENGTH_SHORT).show();
+                    }
+                },
+                error -> {
+                    progressDialog.dismiss();
+                    if (error.networkResponse != null && error.networkResponse.statusCode == 404) {
+                        Toast.makeText(this, "Phone number not found", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "Network error", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
+
+        Volley.newRequestQueue(this).add(request);
+    }
 }

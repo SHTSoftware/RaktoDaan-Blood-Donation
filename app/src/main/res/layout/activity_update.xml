@@ -130,7 +130,7 @@
             android:layout_marginBottom="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phoneNumberEditText"
+                android:id="@+id/phoneNumberEditText2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Phone Number"
@@ -195,7 +195,7 @@
             android:layout_marginBottom="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/areaVillageEditText"
+                android:id="@+id/areaVillageEditText2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Area / Village"/>
