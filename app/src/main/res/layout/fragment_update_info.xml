@@ -3,12 +3,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.UpdateInfo">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.UpdateInfo"
+    android:padding="10dp"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        >
+        <com.google.android.material.button.MaterialButton
+            android:padding="20dp"
+            android:id="@+id/updateLastDonationDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Last Donation Date"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary_red"
+            app:cornerRadius="8dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:padding="20dp"
+            android:id="@+id/updateAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Address"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary_red"
+            app:cornerRadius="8dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:padding="20dp"
+            android:id="@+id/privacyPolicy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privacy Policy"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary_red"
+            app:cornerRadius="8dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:padding="20dp"
+            android:id="@+id/aboutUs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary_red"
+            app:cornerRadius="8dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            />
+
+
+
+    </LinearLayout>
 
 </FrameLayout>

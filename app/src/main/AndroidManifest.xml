@@ -18,6 +18,9 @@
         android:theme="@style/Theme.RaktoDaanBloodDonation"
         tools:targetApi="31">
         <activity
+            android:name=".AboutUs"
+            android:exported="false" />
+        <activity
             android:name=".ShowAllData"
             android:exported="false" />
         <activity
