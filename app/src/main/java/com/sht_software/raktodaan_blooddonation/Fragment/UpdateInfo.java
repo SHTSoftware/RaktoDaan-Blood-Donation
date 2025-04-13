@@ -1,5 +1,8 @@
 package com.sht_software.raktodaan_blooddonation.Fragment;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +18,7 @@ import android.widget.Toast;
 
 import com.sht_software.raktodaan_blooddonation.AboutUs;
 import com.sht_software.raktodaan_blooddonation.R;
+import com.sht_software.raktodaan_blooddonation.UpdateActivity;
 import com.sht_software.raktodaan_blooddonation.WebView;
 import com.sht_software.raktodaan_blooddonation.databinding.FragmentUpdateInfoBinding;
 
@@ -27,6 +31,14 @@ public class UpdateInfo extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentUpdateInfoBinding.inflate(inflater, container, false);
+
+        binding.updateInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), UpdateActivity.class));
+            }
+        });
+
 
         binding.aboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +81,8 @@ public class UpdateInfo extends Fragment {
                 shareApp(getActivity());
             }
         });
+
+
 
 
         return binding.getRoot();

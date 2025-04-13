@@ -3,6 +3,7 @@ package com.sht_software.raktodaan_blooddonation.Fragment;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,6 +21,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputEditText;
 import com.sht_software.raktodaan_blooddonation.R;
+import com.sht_software.raktodaan_blooddonation.WebView;
 import com.sht_software.raktodaan_blooddonation.databinding.FragmentDonorBinding;
 
 import org.json.JSONException;
@@ -432,6 +434,13 @@ public class DonorFragment extends Fragment {
             }
         });
 
+        binding.privacyPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                WebView.url = "https://sites.google.com/view/raktadaan-blood-donation";
+                startActivity(new Intent(getActivity(), WebView.class));
+            }
+        });
 
 
 

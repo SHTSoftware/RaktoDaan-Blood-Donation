@@ -15,23 +15,10 @@
         >
         <com.google.android.material.button.MaterialButton
             android:padding="20dp"
-            android:id="@+id/updateLastDonationDate"
+            android:id="@+id/updateInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Update Last Donation Date"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/primary_red"
-            app:cornerRadius="8dp"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            />
-
-        <com.google.android.material.button.MaterialButton
-            android:padding="20dp"
-            android:id="@+id/updateAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Update Address"
+            android:text="Update Info"
             android:textColor="@color/white"
             app:backgroundTint="@color/primary_red"
             app:cornerRadius="8dp"

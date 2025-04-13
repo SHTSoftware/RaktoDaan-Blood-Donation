@@ -102,7 +102,7 @@
                     android:id="@+id/lastDonateEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Last Donate"
+                    android:hint="Last Blood Donation Date"
                     android:inputType="none"
                     android:focusable="false"
                     android:clickable="true"/>
@@ -210,11 +210,21 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="By registering, you agree to our Terms and Privacy Policy"
+                android:text="By registering, you agree to our"
                 android:textSize="12sp"
                 android:textColor="@color/dark_gray"
                 android:gravity="center"
                 android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/privacyPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Privacy Policy"
+                android:textSize="12sp"
+                android:textColor="@color/dark_gray"
+                android:gravity="center"/>
+
         </LinearLayout>
 
     </ScrollView>

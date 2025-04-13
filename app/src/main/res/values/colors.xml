@@ -61,4 +61,6 @@
     <color name="bg_card">#FFFFFF</color>
     <color name="divider">#E0E0E0</color>
 
+    <color name="gray">#808080</color> <!-- or your actual gray color -->
+
 </resources>
