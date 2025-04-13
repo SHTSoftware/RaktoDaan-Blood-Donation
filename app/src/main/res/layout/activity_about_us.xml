@@ -6,7 +6,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutUs">
+    tools:context=".AboutUs"
+    android:id="@+id/main"
+    >
 
     <RelativeLayout
         android:background="@color/white"
@@ -172,7 +174,7 @@
                 android:layout_height="wrap_content"
                 >
 
-                <com.codesgood.views.JustifiedTextView
+                <TextView
                     android:textColor="@color/black"
                     android:id="@+id/aboutMe"
                     android:textSize="@dimen/_14ssp"
