@@ -63,4 +63,7 @@
 
     <color name="gray">#808080</color> <!-- or your actual gray color -->
 
+
+    <color name="splash_background">#FF0F1A3D</color>
+
 </resources>
