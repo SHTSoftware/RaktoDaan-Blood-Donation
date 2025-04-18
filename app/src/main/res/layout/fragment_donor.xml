@@ -217,12 +217,13 @@
                 android:layout_marginTop="16dp"/>
 
             <TextView
+                android:textStyle="bold"
                 android:id="@+id/privacyPolicy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Privacy Policy"
                 android:textSize="12sp"
-                android:textColor="@color/dark_gray"
+                android:textColor="@color/primary_red"
                 android:gravity="center"/>
 
         </LinearLayout>
