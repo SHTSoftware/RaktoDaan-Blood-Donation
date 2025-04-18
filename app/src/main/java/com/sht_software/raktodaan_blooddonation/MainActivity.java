@@ -1,5 +1,7 @@
 package com.sht_software.raktodaan_blooddonation;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -8,6 +10,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.Insets;
@@ -161,5 +164,27 @@ public class MainActivity extends AppCompatActivity {
         return scaleAnimation;
     }
 
-
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setIcon(R.drawable.baseline_exit_to_app_24)
+                .setTitle("Confirm Exit")
+                .setMessage("Do you want to exit?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // Exit the app
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // Dismiss the dialog and continue with the app
+                        dialogInterface.dismiss();
+                    }
+                })
+                .show();
+    }
 }
