@@ -3,8 +3,11 @@ package com.sht_software.raktodaan_blooddonation.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,18 +15,45 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.sht_software.raktodaan_blooddonation.R;
 import com.sht_software.raktodaan_blooddonation.ShowAllData;
 import com.sht_software.raktodaan_blooddonation.databinding.FragmentDonorListBinding;
 
 public class DonorList extends Fragment {
 
     public static FragmentDonorListBinding binding;
+    private InterstitialAd mInterstitialAd;
+    private static final String TAG = "MainActivity";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Force Light Mode before setting content
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         // Inflate the layout for this fragment
         binding = FragmentDonorListBinding.inflate(inflater, container, false);
+        // ADMOB ////////
+        new Thread(
+                () -> {
+                    // Initialize the Google Mobile Ads SDK on a background thread.
+                    MobileAds.initialize(getActivity(), initializationStatus -> {});
+                })
+                .start();
+        // ADMOB ////////
+
+        // METHOD //
+        loadFullScreenAds();
+        // METHOD //
+
+
 
 
         String[] bloodGroup = {
@@ -418,6 +448,7 @@ public class DonorList extends Fragment {
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                showAds();
                 String division = binding.spinnerDivision.getSelectedItem().toString();
                 String district = binding.spinnerDistrict.getSelectedItem().toString();
                 String upazila = binding.spinnerUpazila.getSelectedItem().toString();
@@ -469,6 +500,63 @@ public class DonorList extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
                 com.google.android.material.R.layout.support_simple_spinner_dropdown_item, bloodGroup);
         binding.spinnerBloodGroup.setAdapter(adapter);
+    }
+
+    private void showAds () {
+        if (mInterstitialAd!=null) {
+            mInterstitialAd.show(getActivity());
+        } else {
+            Log.d("TAG", "Ads not loaded yet");
+        }
+    }
+
+    private void loadFullScreenAds () {
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        InterstitialAd.load(getActivity(),getString(R.string.AD_ID_INTERSTITIAL), adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        Log.i(TAG, "onAdLoaded");
+                        mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                            @Override
+                            public void onAdClicked() {
+                                super.onAdClicked();
+                            }
+
+                            @Override
+                            public void onAdDismissedFullScreenContent() {
+                                super.onAdDismissedFullScreenContent();
+                                loadFullScreenAds();
+                            }
+
+                            @Override
+                            public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                                super.onAdFailedToShowFullScreenContent(adError);
+                            }
+
+                            @Override
+                            public void onAdImpression() {
+                                super.onAdImpression();
+                            }
+
+                            @Override
+                            public void onAdShowedFullScreenContent() {
+                                super.onAdShowedFullScreenContent();
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.d(TAG, loadAdError.toString());
+                        mInterstitialAd = null;
+                    }
+                });
     }
 
 
