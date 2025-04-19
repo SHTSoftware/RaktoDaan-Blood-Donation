@@ -6,6 +6,6 @@
     <string name="splash_tagline">Donate Blood, Save Lives</string>
     <string name="powered_by">Powered by SHT Software\nDeveloped by Tanver Ahmed</string>
     <string name="app_logo">Blood Drop Logo</string>
-    <string name="ADMOB_APP_ID">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="AD_ID_INTERSTITIAL">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="ADMOB_APP_ID">ca-app-pub-1389468122875691~7173496556</string>
+    <string name="AD_ID_INTERSTITIAL">ca-app-pub-1389468122875691/1860400634</string>
 </resources>
