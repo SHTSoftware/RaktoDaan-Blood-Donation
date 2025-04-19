@@ -109,23 +109,23 @@ public class DonorFragment extends Fragment {
                             } else if (district.equals("নরসিংদী")) {
                                 String[] upazilas = {"বেলাবো", "মনোহরদী", "নরসিংদী সদর", "পলাশ", "রায়পুরা", "শিবপুর"};
                                 setUpazilaAdapter(upazilas);
-                            } else if (district.equals("নারায়নগঞ্জ")) {
+                            } else if (district.equals("নারায়ণগঞ্জ")) {
                                 String[] upazilas = {"আড়াইহাজার", "সোনারগাঁও", "বন্দর", "নারায়ণগঞ্জ সদর", "রূপগঞ্জ"};
                                 setUpazilaAdapter(upazilas);
                             } else if (district.equals("ফরিদপুর")) {
-                                String[] upazilas = {"আলফাডাঙা", "ভাঙ্গা", "বোয়ালমারী", "চর ভদ্রাসন", "ফরিদপুর সদর", "মধুখালী", "নগরکান্দা", "সদরপুর", "সালথা"};
+                                String[] upazilas = {"আলফাডাঙা", "ভাঙ্গা", "বোয়ালমারী", "চর ভদ্রাসন", "ফরিদপুর সদর", "মধুখালী", "নগরকান্দা", "সদরপুর", "সালথা"};
                                 setUpazilaAdapter(upazilas);
-                            } else if (district.equals("মাদারিপুর")) {
-                                String[] upazilas = {"কালকিনী", "মাদারিপুর সদর", "রাজৈর", "শিবচর", "ডাসা"};
+                            } else if (district.equals("মাদারীপুর")) {
+                                String[] upazilas = {"কালকিনী", "মাদারীপুর সদর", "রাজৈর", "শিবচর", "ডাসা"};
                                 setUpazilaAdapter(upazilas);
                             } else if (district.equals("মানিকগঞ্জ")) {
                                 String[] upazilas = {"দৌলতপুর", "ঘিওর", "হরিরামপুর", "মানিকগঞ্জ", "সাটুরিয়া", "শিবালয়", "সিঙ্গাইর"};
                                 setUpazilaAdapter(upazilas);
-                            } else if (district.equals("মুন্সিগঞ্জ")) {
-                                String[] upazilas = {"গজারিয়া", "লৌহজং", "মুন্সিগঞ্জ সদর", "সিরাজদীখান", "শ্রীনগর", "টঙ্গীবাড়ী"};
+                            } else if (district.equals("মুন্সীগঞ্জ")) {
+                                String[] upazilas = {"গজারিয়া", "লৌহজং", "মুন্সীগঞ্জ সদর", "সিরাজদীখান", "শ্রীনগর", "টঙ্গীবাড়ী"};
                                 setUpazilaAdapter(upazilas);
-                            } else if (district.equals("রাজবাড়ী")) {
-                                String[] upazilas = {"বালিয়াকান্দি", "গোয়ালন্দ", "পাংশা", "রাজবাড়ী সদর", "কালুখালী"};
+                            } else if (district.equals("রাজবাড়ী")) {
+                                String[] upazilas = {"বালিয়াকান্দি", "গোয়ালন্দ", "পাংশা", "রাজবাড়ী সদর", "কালুখালী"};
                                 setUpazilaAdapter(upazilas);
                             } else if (district.equals("শরীয়তপুর")) {
                                 String[] upazilas = {"ভেদরগঞ্জ", "ডামুড্যা", "গোসাইরহাট", "নড়িয়া", "শরিয়তপুর সদর", "জাজিরা"};
@@ -150,7 +150,7 @@ public class DonorFragment extends Fragment {
                             String district = adapterView.getItemAtPosition(i).toString();
 
                             if (district.equals("কক্সবাজার")) {
-                                String[] upazilas = {"সদর", "রামু", "চকরিয়া", "কুতুবদিয়া", "পেকুয়া", "উখিয়া", "টেকনাফ", "মহেশখালী", "ঈদগাঁও"};
+                                String[] upazilas = {"কক্সবাজার সদর", "রামু", "চকরিয়া", "কুতুবদিয়া", "পেকুয়া", "উখিয়া", "টেকনাফ", "মহেশখালী", "ঈদগাঁও"};
                                 setUpazilaAdapter(upazilas);
                             } else if (district.equals("কুমিল্লা")) {
                                 String[] upazilas = {"আদর্শ সদর", "সদর দক্ষিণ", "বুড়িচং", "দেবিদ্বার", "চৌদ্দগ্রাম", "চান্দিনা", "মুরাদনগর", "বরুড়া", "দাউদকান্দি", "মনোহরগঞ্জ", "লাকসাম", "নাঙ্গলকোট", "ব্রাহ্মণপাড়া", "হোমনা", "মেঘনা", "তিতাস", "লালমাই"};
@@ -170,7 +170,7 @@ public class DonorFragment extends Fragment {
                             } else if (district.equals("ফেনী")) {
                                 String[] upazilas = {"ফেনী সদর", "ছাগলনাইয়া", "দাগনভূইঞা", "পরশুরাম", "সোনাগাজী", "ফুলগাজী"};
                                 setUpazilaAdapter(upazilas);
-                            } else if (district.equals("বরাহ্মণবাড়িয়া")) {
+                            } else if (district.equals("ব্রাহ্মণবাড়িয়া")) {
                                 String[] upazilas = {"ব্রাহ্মণবাড়িয়া সদর", "সরাইল", "আখাউড়া", "কসবা", "নাসিরনগর", "বিজয়নগর", "আশুগঞ্জ", "নবীনগর", "বাঞ্ছারামপুর"};
                                 setUpazilaAdapter(upazilas);
                             } else if (district.equals("বান্দরবান")) {
@@ -353,7 +353,7 @@ public class DonorFragment extends Fragment {
                     });
 
                 } else if (selected.equals("রংপুর বিভাগ")) {
-                    String[] districts = {"রংপুর", "দিনাজপুর", "নীলফামারী", "গাইবান্ধা", "কুড়িগ্রাম",
+                    String[] districts = {"রংপুর", "দিনাজপুর", "নীলফামারী", "গাইবান্ধা", "কুড়িগ্রাম",
                             "লালমনিরহাট", "পঞ্চগড়", "ঠাকুরগাঁও"};
                     setDistrictAdapter(districts);
 
@@ -375,8 +375,8 @@ public class DonorFragment extends Fragment {
                             } else if (district.equals("নীলফামারী")) {
                                 String[] upazilas = {"ডিমলা", "জলঢাকা", "সৈয়দপুর", "কিশোরগঞ্জ", "নীলফামারী সদর", "ডোমার"};
                                 setUpazilaAdapter(upazilas);
-                            } else if (district.equals("পঞ্চগড়")) {
-                                String[] upazilas = {"পঞ্চগড় সদর", "তেতুলিয়া", "আটোয়ারী", "দেবীগঞ্জ", "বোদা"};
+                            } else if (district.equals("পঞ্চগড়")) {
+                                String[] upazilas = {"পঞ্চগড় সদর", "তেতুলিয়া", "আটোয়ারী", "দেবীগঞ্জ", "বোদা"};
                                 setUpazilaAdapter(upazilas);
                             } else if (district.equals("রংপুর")) {
                                 String[] upazilas = {"মিঠাপুকুর", "তারাগঞ্জ", "বদরগঞ্জ", "পীরগঞ্জ", "পীরগাছা", "গংগাচড়া", "কাউনিয়া", "রংপুর সদর"};

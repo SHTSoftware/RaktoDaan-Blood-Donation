@@ -105,7 +105,8 @@
                     android:hint="Last Blood Donation Date"
                     android:inputType="none"
                     android:focusable="false"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
